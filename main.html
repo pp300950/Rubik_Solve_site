@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik's Cube</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #646464;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 350px;
+            width: 350px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 380px;
+            left: 40%;
+        }
+
+        .box {
+            height: 80px;
+            width: 80px;
+            margin: 5px;
+            background-color: #000;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .color-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .color-option {
+            height: 60px;
+            width: 60px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .color-option:hover {
+            transform: scale(1.2);
+        }
+
+        .indicator {
+            font-size: 14px;
+            font-weight: bold;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .top-indicator {
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .bottom-indicator {
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .left-indicator {
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .right-indicator {
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #output {
+            width: 80%;
+            margin-top: 20px;
+            height: 200px;
+            overflow: scroll;
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Indicators for top, bottom, left, and right -->
+        <div class="indicator top-indicator" id="top-indicator">Top</div>
+        <div class="indicator bottom-indicator" id="bottom-indicator">Bottom</div>
+        <div class="indicator left-indicator" id="left-indicator">Left</div>
+        <div class="indicator right-indicator" id="right-indicator">Right</div>
+
+        <!-- Rubik's Cube (3x3 grid) -->
+        <div class="box" id="box1" onclick="setID('box1')"></div>
+        <div class="box" id="box2" onclick="setID('box2')"></div>
+        <div class="box" id="box3" onclick="setID('box3')"></div>
+        <div class="box" id="box4" onclick="setID('box4')"></div>
+        <div class="box" id="box5" onclick="setID('box5')"></div>
+        <div class="box" id="box6" onclick="setID('box6')"></div>
+        <div class="box" id="box7" onclick="setID('box7')"></div>
+        <div class="box" id="box8" onclick="setID('box8')"></div>
+        <div class="box" id="box9" onclick="setID('box9')"></div>
+    </div>
+
+    <!-- Color Selection -->
+    <div class="color-options">
+        <div class="color-option" style="background-color: #00bfff" onclick="setColor('#00bfff')"></div>
+        <div class="color-option" style="background-color: #ffa500" onclick="setColor('#ffa500')"></div>
+        <div class="color-option" style="background-color: #ffff00" onclick="setColor('#ffff00')"></div>
+        <div class="color-option" style="background-color: #ffffff" onclick="setColor('#ffffff')"></div>
+        <div class="color-option" style="background-color: #ff0000" onclick="setColor('#ff0000')"></div>
+        <div class="color-option" style="background-color: #008000" onclick="setColor('#008000')"></div>
+    </div>
+
+    <!-- Buttons -->
+    <button onclick="print()">Answer</button>
+
+    <!-- Output Text Area -->
+    <textarea id="output" rows="10" cols="50"></textarea>
+
+    <script>
+        let color = "";
+        let clickedBoxId = null;
+        let clickedBoxColor = null;
+
+        function setID(id) {
+            clickedBoxId = id;
+            console.log(id)
+        }
+        let boxcolor = "";
+        let id = "";
+        //{
+        window.green1 = "#000000";
+        window.green2 = "#000000";
+        window.green3 = "#000000";
+        window.green4 = "#000000";
+        window.green5 = "#008000";
+        window.green6 = "#000000";
+        window.green7 = "#000000";
+        window.green8 = "#000000";
+        window.green9 = "#000000";
+        window.orang1 = "#000000";
+        window.orang2 = "#000000";
+        window.orang3 = "#000000";
+        window.orang4 = "#000000";
+        window.orang5 = "#ffa500";
+        window.orang6 = "#000000";
+        window.orang7 = "#000000";
+        window.orang8 = "#000000";
+        window.orang9 = "#000000";
+        window.blue1 = "#000000";
+        window.blue2 = "#000000";
+        window.blue3 = "#000000";
+        window.blue4 = "#000000";
+        window.blue5 = "#00bfff";
+        window.blue6 = "#000000";
+        window.blue7 = "#000000";
+        window.blue8 = "#000000";
+        window.blue9 = "#000000";
+        window.red1 = "#000000";
+        window.red2 = "#000000";
+        window.red3 = "#000000";
+        window.red4 = "#000000";
+        window.red5 = "#ff0000";
+        window.red6 = "#000000";
+        window.red7 = "#000000";
+        window.red8 = "#000000";
+        window.red9 = "#000000";
+        window.yellow1 = "#000000";
+        window.yellow2 = "#000000";
+        window.yellow3 = "#000000";
+        window.yellow4 = "#000000";
+        window.yellow5 = "#ffff00";
+        window.yellow6 = "#000000";
+        window.yellow7 = "#000000";
+        window.yellow8 = "#000000";
+        window.yellow9 = "#000000";
+        window.white1 = "#000000";
+        window.white2 = "#000000";
+        window.white3 = "#000000";
+        window.white4 = "#000000";
+        window.white5 = "#ffffff";
+        window.white6 = "#000000";
+        window.white7 = "#000000";
+        window.white8 = "#000000";
+        window.white9 = "#000000";
+        //}
+        let bigbox = "green";
+        const colorMap = {
+            '#00bfff': true,
+            '#ffa500': true,
+            '#ffff00': true,
+            '#ffffff': true,
+            '#ff0000': true,
+            '#008000': true
+        };
+        function setColor(color) {
+            //myplay = color;
+            clickedBoxColor = color;
+            console.log(color)
+            document.getElementById(clickedBoxId).style.backgroundColor = clickedBoxColor;
+            if (clickedBoxId === "box5") {
+                if (clickedBoxColor === "#008000") {
+                    bigbox = "green";
+                    temp1 = window.green1;
+                    temp2 = window.green2;
+                    temp3 = window.green3;
+                    temp4 = window.green4;
+                    temp6 = window.green6;
+                    temp7 = window.green7;
+                    temp8 = window.green8;
+                    temp9 = window.green9;
+                    document.getElementById("box1").style.backgroundColor = temp1;
+                    document.getElementById("box2").style.backgroundColor = temp2;
+                    document.getElementById("box3").style.backgroundColor = temp3;
+                    document.getElementById("box4").style.backgroundColor = temp4;
+                    document.getElementById("box6").style.backgroundColor = temp6;
+                    document.getElementById("box7").style.backgroundColor = temp7;
+                    document.getElementById("box8").style.backgroundColor = temp8;
+                    document.getElementById("box9").style.backgroundColor = temp9;
+
+                    document.getElementById("top-indicator").style.backgroundColor = "#ffff00";  // Yellow
+                    document.getElementById("bottom-indicator").style.backgroundColor = "#ffffff";  // White
+                    document.getElementById("left-indicator").style.backgroundColor = "#ff0000";  // red
+                    document.getElementById("right-indicator").style.backgroundColor = "#ffa500";  // orang
+                } else if (clickedBoxColor === "#ffa500") {
+                    bigbox = "orang";
+                    console.log("ผ่านเงื่อนไขส้ม  ")
+                    temp1 = window.orang1;
+                    temp2 = window.orang2;
+                    temp3 = window.orang3;
+                    temp4 = window.orang4;
+                    temp6 = window.orang6;
+                    temp7 = window.orang7;
+                    temp8 = window.orang8;
+                    temp9 = window.orang9;
+                    document.getElementById("box1").style.backgroundColor = temp1;
+                    document.getElementById("box2").style.backgroundColor = temp2;
+                    document.getElementById("box3").style.backgroundColor = temp3;
+                    document.getElementById("box4").style.backgroundColor = temp4;
+                    document.getElementById("box6").style.backgroundColor = temp6;
+                    document.getElementById("box7").style.backgroundColor = temp7;
+                    document.getElementById("box8").style.backgroundColor = temp8;
+                    document.getElementById("box9").style.backgroundColor = temp9;
+
+                    document.getElementById("top-indicator").style.backgroundColor = "#ffff00";  // Yellow
+                    document.getElementById("bottom-indicator").style.backgroundColor = "#ffffff";  // White
+                    document.getElementById("left-indicator").style.backgroundColor = "#008000";  // Blue
+                    document.getElementById("right-indicator").style.backgroundColor = "#00bfff";  // Green
+                } else if (clickedBoxColor === "#00bfff") {
+                    bigbox = "blue";
+                    console.log("ผ่านเงื่อนไขฟ้า")
+                    temp1 = window.blue1;
+                    temp2 = window.blue2;
+                    temp3 = window.blue3;
+                    temp4 = window.blue4;
+                    temp6 = window.blue6;
+                    temp7 = window.blue7;
+                    temp8 = window.blue8;
+                    temp9 = window.blue9;
+                    document.getElementById("box1").style.backgroundColor = temp1;
+                    document.getElementById("box2").style.backgroundColor = temp2;
+                    document.getElementById("box3").style.backgroundColor = temp3;
+                    document.getElementById("box4").style.backgroundColor = temp4;
+                    document.getElementById("box6").style.backgroundColor = temp6;
+                    document.getElementById("box7").style.backgroundColor = temp7;
+                    document.getElementById("box8").style.backgroundColor = temp8;
+                    document.getElementById("box9").style.backgroundColor = temp9;
+
+                    document.getElementById("top-indicator").style.backgroundColor = "#ffff00";  // Yellow
+                    document.getElementById("bottom-indicator").style.backgroundColor = "#ffffff";  // White
+                    document.getElementById("left-indicator").style.backgroundColor = "#ffa500";  // orang
+                    document.getElementById("right-indicator").style.backgroundColor = "#ff0000";  // red
+
+                } else if (clickedBoxColor === "#ff0000") {
+                    bigbox = "red";
+                    console.log("ผ่านเงื่อนไขเเดง")
+                    temp1 = window.red1;
+                    temp2 = window.red2;
+                    temp3 = window.red3;
+                    temp4 = window.red4;
+                    temp6 = window.red6;
+                    temp7 = window.red7;
+                    temp8 = window.red8;
+                    temp9 = window.red9;
+                    document.getElementById("box1").style.backgroundColor = temp1;
+                    document.getElementById("box2").style.backgroundColor = temp2;
+                    document.getElementById("box3").style.backgroundColor = temp3;
+                    document.getElementById("box4").style.backgroundColor = temp4;
+                    document.getElementById("box6").style.backgroundColor = temp6;
+                    document.getElementById("box7").style.backgroundColor = temp7;
+                    document.getElementById("box8").style.backgroundColor = temp8;
+                    document.getElementById("box9").style.backgroundColor = temp9;
+
+                    document.getElementById("top-indicator").style.backgroundColor = "#ffff00";  // Yellow
+                    document.getElementById("bottom-indicator").style.backgroundColor = "#ffffff";  // White
+                    document.getElementById("left-indicator").style.backgroundColor = "#00bfff";  // Blue
+                    document.getElementById("right-indicator").style.backgroundColor = "#008000";  // Green
+
+                } else if (clickedBoxColor === "#ffff00") {
+                    bigbox = "yellow";
+                    console.log("ผ่านเงื่อนไขเหลือง")
+                    temp1 = window.yellow1;
+                    temp2 = window.yellow2;
+                    temp3 = window.yellow3;
+                    temp4 = window.yellow4;
+                    temp6 = window.yellow6;
+                    temp7 = window.yellow7;
+                    temp8 = window.yellow8;
+                    temp9 = window.yellow9;
+                    document.getElementById("box1").style.backgroundColor = temp1;
+                    document.getElementById("box2").style.backgroundColor = temp2;
+                    document.getElementById("box3").style.backgroundColor = temp3;
+                    document.getElementById("box4").style.backgroundColor = temp4;
+                    document.getElementById("box6").style.backgroundColor = temp6;
+                    document.getElementById("box7").style.backgroundColor = temp7;
+                    document.getElementById("box8").style.backgroundColor = temp8;
+                    document.getElementById("box9").style.backgroundColor = temp9;
+
+                    document.getElementById("top-indicator").style.backgroundColor = "#00bfff";  // Blue
+                    document.getElementById("bottom-indicator").style.backgroundColor = "#008000";  // Green
+                    document.getElementById("left-indicator").style.backgroundColor = "#ff0000";  // red
+                    document.getElementById("right-indicator").style.backgroundColor = "#ffa500";  // orang
+                } else if (clickedBoxColor === "#ffffff") {
+                    bigbox = "white";
+                    console.log("ผ่านเงื่อนไขขาว")
+                    temp1 = window.white1;
+                    temp2 = window.white2;
+                    temp3 = window.white3;
+                    temp4 = window.white4;
+                    temp6 = window.white6;
+                    temp7 = window.white7;
+                    temp8 = window.white8;
+                    temp9 = window.white9;
+                    document.getElementById("box1").style.backgroundColor = temp1;
+                    document.getElementById("box2").style.backgroundColor = temp2;
+                    document.getElementById("box3").style.backgroundColor = temp3;
+                    document.getElementById("box4").style.backgroundColor = temp4;
+                    document.getElementById("box6").style.backgroundColor = temp6;
+                    document.getElementById("box7").style.backgroundColor = temp7;
+                    document.getElementById("box8").style.backgroundColor = temp8;
+                    document.getElementById("box9").style.backgroundColor = temp9;
+
+                    document.getElementById("top-indicator").style.backgroundColor = "#00bfff";  // Blue
+                    document.getElementById("bottom-indicator").style.backgroundColor = "#008000";  // Green
+                    document.getElementById("left-indicator").style.backgroundColor = "#ffa500";  // orang
+                    document.getElementById("right-indicator").style.backgroundColor = "#ff0000";  // red
+                }
+            } else if (bigbox === "green") {
+                if (clickedBoxId === "box1") {
+                    if (colorMap[color]) {
+                        console.log("เพิ่มค่าสีลงตัวเเปรgree1")
+                        window.green1 = color;
+                    }
+                } else if (clickedBoxId === "box2") {
+                    if (colorMap[color]) {
+                        window.green2 = color;
+                    }
+                } else if (clickedBoxId === "box3") {
+                    if (colorMap[color]) {
+                        window.green3 = color;
+                    }
+                } else if (clickedBoxId === "box4") {
+                    if (colorMap[color]) {
+                        window.green4 = color;
+                    }
+                } else if (clickedBoxId === "box6") {
+                    if (colorMap[color]) {
+                        window.green6 = color;
+                    }
+                } else if (clickedBoxId === "box7") {
+                    if (colorMap[color]) {
+                        window.green7 = color;
+                    }
+                } else if (clickedBoxId === "box8") {
+                    if (colorMap[color]) {
+                        window.green8 = color;
+                    }
+                } else if (clickedBoxId === "box9") {
+                    if (colorMap[color]) {
+                        window.green9 = color;
+                    }
+                }
+            } else if (bigbox === "orang") {
+                if (clickedBoxId === "box1") {
+                    if (colorMap[color]) {
+                        window.orang1 = color;
+                    }
+                } else if (clickedBoxId === "box2") {
+                    if (colorMap[color]) {
+                        window.orang2 = color;
+                    }
+                } else if (clickedBoxId === "box3") {
+                    if (colorMap[color]) {
+                        window.orang3 = color;
+                    }
+                } else if (clickedBoxId === "box4") {
+                    if (colorMap[color]) {
+                        window.orang4 = color;
+                    }
+                } else if (clickedBoxId === "box6") {
+                    if (colorMap[color]) {
+                        window.orang6 = color;
+                    }
+                } else if (clickedBoxId === "box7") {
+                    if (colorMap[color]) {
+                        window.orang7 = color;
+                    }
+                } else if (clickedBoxId === "box8") {
+                    if (colorMap[color]) {
+                        window.orang8 = color;
+                    }
+                } else if (clickedBoxId === "box9") {
+                    if (colorMap[color]) {
+                        window.orang9 = color;
+                    }
+                }
+            } else if (bigbox === "blue") {
+                if (clickedBoxId === "box1") {
+                    if (colorMap[color]) {
+                        window.blue1 = color;
+                    }
+                } else if (clickedBoxId === "box2") {
+                    if (colorMap[color]) {
+                        window.blue2 = color;
+                    }
+                } else if (clickedBoxId === "box3") {
+                    if (colorMap[color]) {
+                        window.blue3 = color;
+                    }
+                } else if (clickedBoxId === "box4") {
+                    if (colorMap[color]) {
+                        window.blue4 = color;
+                    }
+                } else if (clickedBoxId === "box6") {
+                    if (colorMap[color]) {
+                        window.blue6 = color;
+                    }
+                } else if (clickedBoxId === "box7") {
+                    if (colorMap[color]) {
+                        window.blue7 = color;
+                    }
+                } else if (clickedBoxId === "box8") {
+                    if (colorMap[color]) {
+                        window.blue8 = color;
+                    }
+                } else if (clickedBoxId === "box9") {
+                    if (colorMap[color]) {
+                        window.blue9 = color;
+                    }
+                }
+            } else if (bigbox === "red") {
+                if (clickedBoxId === "box1") {
+                    if (colorMap[color]) {
+                        window.red1 = color;
+                    }
+                } else if (clickedBoxId === "box2") {
+                    if (colorMap[color]) {
+                        window.red2 = color;
+                    }
+                } else if (clickedBoxId === "box3") {
+                    if (colorMap[color]) {
+                        window.red3 = color;
+                    }
+                } else if (clickedBoxId === "box4") {
+                    if (colorMap[color]) {
+                        window.red4 = color;
+                    }
+                } else if (clickedBoxId === "box6") {
+                    if (colorMap[color]) {
+                        window.red6 = color;
+                    }
+                } else if (clickedBoxId === "box7") {
+                    if (colorMap[color]) {
+                        window.red7 = color;
+                    }
+                } else if (clickedBoxId === "box8") {
+                    if (colorMap[color]) {
+                        window.red8 = color;
+                    }
+                } else if (clickedBoxId === "box9") {
+                    if (colorMap[color]) {
+                        window.red9 = color;
+                    }
+                }
+            } else if (bigbox === "yellow") {
+                if (clickedBoxId === "box1") {
+                    if (colorMap[color]) {
+                        window.yellow1 = color;
+                    }
+                } else if (clickedBoxId === "box2") {
+                    if (colorMap[color]) {
+                        window.yellow2 = color;
+                    }
+                } else if (clickedBoxId === "box3") {
+                    if (colorMap[color]) {
+                        window.yellow3 = color;
+                    }
+                } else if (clickedBoxId === "box4") {
+                    if (colorMap[color]) {
+                        window.yellow4 = color;
+                    }
+                } else if (clickedBoxId === "box6") {
+                    if (colorMap[color]) {
+                        window.yellow6 = color;
+                    }
+                } else if (clickedBoxId === "box7") {
+                    if (colorMap[color]) {
+                        window.yellow7 = color;
+                    }
+                } else if (clickedBoxId === "box8") {
+                    if (colorMap[color]) {
+                        window.yellow8 = color;
+                    }
+                } else if (clickedBoxId === "box9") {
+                    if (colorMap[color]) {
+                        window.yellow9 = color;
+                    }
+                }
+            } else if (bigbox === "white") {
+                if (clickedBoxId === "box1") {
+                    if (colorMap[color]) {
+                        window.white1 = color;
+                    }
+                } else if (clickedBoxId === "box2") {
+                    if (colorMap[color]) {
+                        window.white2 = color;
+                    }
+                } else if (clickedBoxId === "box3") {
+                    if (colorMap[color]) {
+                        window.white3 = color;
+                    }
+                } else if (clickedBoxId === "box4") {
+                    if (colorMap[color]) {
+                        window.white4 = color;
+                    }
+                } else if (clickedBoxId === "box6") {
+                    if (colorMap[color]) {
+                        window.white6 = color;
+                    }
+                } else if (clickedBoxId === "box7") {
+                    if (colorMap[color]) {
+                        window.white7 = color;
+                    }
+                } else if (clickedBoxId === "box8") {
+                    if (colorMap[color]) {
+                        window.white8 = color;
+                    }
+                } else if (clickedBoxId === "box9") {
+                    if (colorMap[color]) {
+                        window.white9 = color;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+<script src="Solve.js"></script>
+
+
+</html>

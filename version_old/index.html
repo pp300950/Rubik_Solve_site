@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rubik</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+<head>
+	<title>Rubik tess 9.6</title>
+	<style>
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			height: 350px;
+			width: 350px;
+			background-color: #f1f1f1;
+		}
+		
+		.box {
+			height: 80px;
+			width: 80px;
+			margin: 10px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+		
+		.box.disabled {
+			cursor: not-allowed;
+		}
+
+		.color-options {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 10px;
+		}
+
+		.color-option {
+			height: 30px;
+			width: 30px;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			border: 1px solid #ccc;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+		}
+    .color-option{
+      height: 60px;
+      width: 60px;
+    }
+		.color-option:hover {
+			transform: scale(1.2);
+		}
+		
+	</style>
+</head>
+<body>
+  <div class="container">
+    <div class="box" id="box1" onclick="setID('box1')" style="background-color: black">
+    </div>
+    <div class="box" id="box2" onclick="setID('box2')"style="background-color: black">
+    </div>
+    <div class="box" id="box3" onclick="setID('box3')"style="background-color: black">
+    </div>
+    <div class="box" id="box4" onclick="setID('box4')"style="background-color: black">
+    </div>
+    <div class="box" id="box5" onclick="setID('box5')"style="background-color: green">
+    </div>
+    <div class="box" id="box6" onclick="setID('box6')"style="background-color: black">
+    </div>
+    <div class="box" id="box7" onclick="setID('box7')"style="background-color: black">
+    </div>
+    <div class="box" id="box8" onclick="setID('box8')"style="background-color: black">
+    </div>
+    <div class="box" id="box9" onclick="setID('box9')"style="background-color: black">
+    </div>
+  
+  </div>
+  <!--ข้อมูลสี!-->
+  <div class="color-options">
+   
+  <div class="color-option" style="background-color: #00bfff" onclick="setColor('#00bfff')">
+  </div>
+  <div class="color-option" style="background-color: #ffa500" onclick="setColor('#ffa500')">
+  </div>
+  <div class="color-option" style="background-color: #ffff00" onclick="setColor('#ffff00')">
+  </div>
+  <div class="color-option" style="background-color: #ffffff" onclick="setColor('#ffffff')">
+  </div>
+  <div class="color-option" style="background-color: #ff0000" onclick="setColor('#ff0000')">
+  </div>
+  <div class="color-option" style="background-color: #008000" onclick="setColor('#008000')">
+  </div>
+  <button onclick="chek()">chek</button>
+  <button  onclick="print()">เเสดงผล</button>
+
+  </div>
+  <textarea id="output" rows="30" cols="60" style="overflow: scroll; resize: none;"></textarea>
+    <script src="main.js"></script>
+</body>
+</html>
