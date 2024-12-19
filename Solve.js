@@ -28,100 +28,129 @@ function print() {
         Face_Cube_front = "#008000";//หน้าเขียว
 
         all_output = all_output + title_1
-        for (let stop1 = 0; stop1 < 5; stop1++) {
+        for (let stop1 = 0; stop1 < 5; stop1++) { //สำหรับสูตร 1
             //เริ่มที่ด้านเขียว
 
-            //ขาวอยู่ที่เซลล์ 8 เหลือง
             if (green2 === "#008000" && yellow8 === "#ffffff") {
+                //ขาวอยู่ที่เซลล์ 8 เหลือง
                 s1();
                 s1();
+                bigi = 2; //จบสูตร 1 
                 break;
+            } else if (green4 === "#008000" && red6 === "#ffffff") {
+                // เซลขาวอยู่ เเดง 6
+                s5(); //หน้าเขียวทวนเข็ม
+                bigi = 2;
+                break;
+            } else if (green6 === "#008000" && orang4 === "#ffffff") {
+                s1();
+                bigi = 2;
+                break;
+            } else if (red2 === "#008000" && yellow4 === "#ffffff") {
+
+                //**************  ขาวอยู่เหลือง  ****************/
+
+                //เหลือง 4 สีขาว
+                //เเดง 2 สีเขียว
+                s10();
+                s1();
+                s1();
+            } else if (orang2 === "#008000" && yellow6 === "#ffffff") {
+                //เหลือง 6 สีขาว
+                //ส้ม 2 สีเขียว
+                s9();
+                s1();
+                s1();
+            } else if (blue2 === "#008000" && yellow2 === "#ffffff") {
+                //เหลือง 6 สีขาว
+                //ส้ม 2 สีเขียว
+                s9();
+                s9();
+                s1();
+                s1();
+            } else if (red2 === "#008000" && yellow4 === "#ffffff") {
+                //**************  ขาวอยู่เขียว  */
+
+                //เหลือง 4 สีขาว
+                //เเดง 2 สีเขียว
+                s10();
+                s1();
+                s1();
             }
 
-            //เเสดงผล
-
         }
-
+        //เเสดงผล
         document.getElementById("output").innerHTML = all_output;
     }
 }
 
-function Chang_Face(){
+//ทดสอบฟังก์ชัน
+
+
+
+//เคลื่อนทุกหน้าไปทางขวา 
+// ใช้สำหรับการเปลี่ยนสีเเต่ยังสามารถใช้สูตรเเก้เดิมได้
+// มุม มองของสีเหลืองคือหมุนทวนเข็ม
+function Chang_Face() {
     let g1_temp = window.green1;
     let g2_temp = window.green2;
     let g3_temp = window.green3;
     let g4_temp = window.green4;
-    let g5_temp = window.green5;
+    //  let g5_temp = window.green5;
     let g6_temp = window.green6;
     let g7_temp = window.green7;
     let g8_temp = window.green8;
     let g9_temp = window.green9;
 
-    window.orang1 = g1_temp;
-    window.orang2 = g2_temp;
-    window.orang3 = g3_temp;
-    window.orang4 = g4_temp;
-    window.orang5 = g5_temp;
-    window.orang6 = g6_temp;
-    window.orang7 = g7_temp;
-    window.orang8 = g8_temp;
-    window.orang9 = g9_temp;
-
     let y1_temp = window.yellow1;
     let y2_temp = window.yellow2;
     let y3_temp = window.yellow3;
     let y4_temp = window.yellow4;
-    let y5_temp = window.yellow5;
+    //  let y5_temp = window.yellow5;
     let y6_temp = window.yellow6;
     let y7_temp = window.yellow7;
     let y8_temp = window.yellow8;
     let y9_temp = window.yellow9;
 
+
+    // หน้าเเดงทวนเข็ม
+    //สลับเเบบทะเเยงมุม-F
+    let tempnum1 = window.yellow1;
+    let tempnum3 = window.yellow3;
+    let tempnum9 = window.yellow9;
+    let tempnum7 = window.yellow7;
+
+    //สลับเเบบเเถบระหว่างกลาง-F
+    let tempnum2 = window.yellow2;
+    let tempnum6 = window.yellow6;
+    let tempnum8 = window.yellow8;
+    let tempnum4 = window.yellow4;
+
     let r1_temp = window.red1;
     let r2_temp = window.red2;
     let r3_temp = window.red3;
     let r4_temp = window.red4;
-    let r5_temp = window.red5;
+    //  let r5_temp = window.red5;
     let r6_temp = window.red6;
     let r7_temp = window.red7;
     let r8_temp = window.red8;
     let r9_temp = window.red9;
 
-    window.green1 = r1_temp;
-    window.green2 = r2_temp;
-    window.green3 = r3_temp;
-    window.green4 = r4_temp;
-    window.green5 = r5_temp;
-    window.green6 = r6_temp;
-    window.green7 = r7_temp;
-    window.green8 = r8_temp;
-    window.green9 = r9_temp;
-
     let b1_temp = window.blue1;
     let b2_temp = window.blue2;
     let b3_temp = window.blue3;
     let b4_temp = window.blue4;
-    let b5_temp = window.blue5;
+    //  let b5_temp = window.blue5;
     let b6_temp = window.blue6;
     let b7_temp = window.blue7;
     let b8_temp = window.blue8;
     let b9_temp = window.blue9;
 
-    window.red1 = b1_temp;
-    window.red2 = b2_temp;
-    window.red3 = b3_temp;
-    window.red4 = b4_temp;
-    window.red5 = b5_temp;
-    window.red6 = b6_temp;
-    window.red7 = b7_temp;
-    window.red8 = b8_temp;
-    window.red9 = b9_temp;
-
     let w1_temp = window.white1;
     let w2_temp = window.white2;
     let w3_temp = window.white3;
     let w4_temp = window.white4;
-    let w5_temp = window.white5;
+    // let w5_temp = window.white5;
     let w6_temp = window.white6;
     let w7_temp = window.white7;
     let w8_temp = window.white8;
@@ -131,24 +160,62 @@ function Chang_Face(){
     let o2_temp = window.orang2;
     let o3_temp = window.orang3;
     let o4_temp = window.orang4;
-    let o5_temp = window.orang5;
+    //  let o5_temp = window.orang5;
     let o6_temp = window.orang6;
     let o7_temp = window.orang7;
     let o8_temp = window.orang8;
     let o9_temp = window.orang9;
 
+    window.orang1 = g1_temp;
+    window.orang2 = g2_temp;
+    window.orang3 = g3_temp;
+    window.orang4 = g4_temp;
+    //   window.orang5 = g5_temp;
+    window.orang6 = g6_temp;
+    window.orang7 = g7_temp;
+    window.orang8 = g8_temp;
+    window.orang9 = g9_temp;
+
+    window.yellow3 = tempnum1;
+    window.yellow9 = tempnum3;
+    window.yellow7 = tempnum9;
+    window.yellow1 = tempnum7;
+
+    window.yellow6 = tempnum2;
+    window.yellow8 = tempnum6;
+    window.yellow4 = tempnum8;
+    window.yellow2 = tempnum4;
+
+    window.green1 = r1_temp;
+    window.green2 = r2_temp;
+    window.green3 = r3_temp;
+    window.green4 = r4_temp;
+    // window.green5 = r5_temp;
+    window.green6 = r6_temp;
+    window.green7 = r7_temp;
+    window.green8 = r8_temp;
+    window.green9 = r9_temp;
+
+    window.red1 = b1_temp;
+    window.red2 = b2_temp;
+    window.red3 = b3_temp;
+    window.red4 = b4_temp;
+    //  window.red5 = b5_temp;
+    window.red6 = b6_temp;
+    window.red7 = b7_temp;
+    window.red8 = b8_temp;
+    window.red9 = b9_temp;
+
     window.blue1 = o1_temp;
     window.blue2 = o2_temp;
     window.blue3 = o3_temp;
     window.blue4 = o4_temp;
-    window.blue5 = o5_temp;
+    //  window.blue5 = o5_temp;
     window.blue6 = o6_temp;
     window.blue7 = o7_temp;
     window.blue8 = o8_temp;
     window.blue9 = o9_temp;
 
-
-    
 }
 
 
@@ -227,6 +294,23 @@ function s1() {
 }// หน้าเขียวตามเข็ม
 function s2() {
 
+    /* สีส้ม     #ffa500
+       สีฟ้า     #00bfff
+       สีเเดง    #ff0000
+       สีเหลือง  #ffff00
+       สีขาว    #ffffff
+       สีเขียว   #008000
+    */
+    if (Face_Cube_front === "#008000" && Face_Cube_on === "#ffff00") {//หน้าเป็นหน้าเขียว
+        all_output = all_output + '\nขวาขึ้น';
+    } else if (Face_Cube_front === "#ffa500" && Face_Cube_on === "#ffff00") {//หน้าสีส้ม
+        all_output = all_output + '\nหน้าตามเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#00bfff" && Face_Cube_on === "#ffff00") {//สีฟ้า
+        all_output = all_output + '\nซ้ายลง';
+    } else if (Face_Cube_front === "#ff0000" && Face_Cube_on === "#ffff00") {//สีเเดง
+        all_output = all_output + '\nหลังทวนเข็มนาฬิกา';
+    }
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.orang1;
@@ -281,6 +365,24 @@ function s2() {
     //}
 }// หน้าส้มตามเข็ม
 function s3() {
+
+    /* สีส้ม     #ffa500
+       สีฟ้า     #00bfff
+       สีเเดง    #ff0000
+       สีเหลือง  #ffff00
+       สีขาว    #ffffff
+       สีเขียว   #008000
+    */
+    if (Face_Cube_front === "#008000" && Face_Cube_on === "#ffff00") {//หน้าเป็นหน้าเขียว
+        all_output = all_output + '\nหลังทวนเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#ffa500" && Face_Cube_on === "#ffff00") {//หน้าสีส้ม
+        all_output = all_output + '\nขวาขึ้น';
+    } else if (Face_Cube_front === "#00bfff" && Face_Cube_on === "#ffff00") {//สีฟ้า
+        all_output = all_output + '\nหน้าตามเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#ff0000" && Face_Cube_on === "#ffff00") {//สีเเดง
+        all_output = all_output + '\nซ้ายลง';
+    }
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.blue1;
@@ -335,6 +437,24 @@ function s3() {
     //}
 }// หน้าน้ำเงินตามเข็ม
 function s4() {
+
+    /* สีส้ม     #ffa500
+       สีฟ้า     #00bfff
+       สีเเดง    #ff0000
+       สีเหลือง  #ffff00
+       สีขาว    #ffffff
+       สีเขียว   #008000
+    */
+    if (Face_Cube_front === "#008000" && Face_Cube_on === "#ffff00") {//หน้าเป็นหน้าเขียว
+        all_output = all_output + '\nซ้ายลง';
+    } else if (Face_Cube_front === "#ffa500" && Face_Cube_on === "#ffff00") {//หน้าสีส้ม
+        all_output = all_output + '\nหลังทวนเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#00bfff" && Face_Cube_on === "#ffff00") {//สีฟ้า
+        all_output = all_output + '\nขวาขึ้น';
+    } else if (Face_Cube_front === "#ff0000" && Face_Cube_on === "#ffff00") {//สีเเดง
+        all_output = all_output + '\nหน้าตามเข็มนาฬิกา';
+    }
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.red1;
@@ -389,6 +509,24 @@ function s4() {
     //}
 }// หน้าเเดงตามเข็ม
 function s5() {
+
+    /* สีส้ม     #ffa500
+       สีฟ้า     #00bfff
+       สีเเดง    #ff0000
+       สีเหลือง  #ffff00
+       สีขาว    #ffffff
+       สีเขียว   #008000
+    */
+    if (Face_Cube_front === "#008000" && Face_Cube_on === "#ffff00") {//หน้าเป็นหน้าเขียว
+        all_output = all_output + '\nหน้าทวนเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#ffa500" && Face_Cube_on === "#ffff00") {//หน้าสีส้ม
+        all_output = all_output + '\nซ้ายขึ้น';
+    } else if (Face_Cube_front === "#00bfff" && Face_Cube_on === "#ffff00") {//สีฟ้า
+        all_output = all_output + '\nหลังตามเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#ff0000" && Face_Cube_on === "#ffff00") {//สีเเดง
+        all_output = all_output + '\nขวาลง';
+    }
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.green1;
@@ -444,6 +582,24 @@ function s5() {
     //}
 }// หน้าเขียวทวนเข็ม
 function s6() {
+
+    /* สีส้ม     #ffa500
+       สีฟ้า     #00bfff
+       สีเเดง    #ff0000
+       สีเหลือง  #ffff00
+       สีขาว    #ffffff
+       สีเขียว   #008000
+    */
+    if (Face_Cube_front === "#008000" && Face_Cube_on === "#ffff00") {//หน้าเป็นหน้าเขียว
+        all_output = all_output + '\nขวาลง';
+    } else if (Face_Cube_front === "#ffa500" && Face_Cube_on === "#ffff00") {//หน้าสีส้ม
+        all_output = all_output + '\nหน้าทวนเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#00bfff" && Face_Cube_on === "#ffff00") {//สีฟ้า
+        all_output = all_output + '\nซ้ายขึ้น';
+    } else if (Face_Cube_front === "#ff0000" && Face_Cube_on === "#ffff00") {//สีเเดง
+        all_output = all_output + '\nหลังตามเข็มนาฬิกา';
+    }
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.orang1;
@@ -498,6 +654,23 @@ function s6() {
     //}
 }// หน้าส้มทวนเข็ม
 function s7() {
+    /* สีส้ม     #ffa500
+       สีฟ้า     #00bfff
+       สีเเดง    #ff0000
+       สีเหลือง  #ffff00
+       สีขาว    #ffffff
+       สีเขียว   #008000
+    */
+    if (Face_Cube_front === "#008000" && Face_Cube_on === "#ffff00") {//หน้าเป็นหน้าเขียว
+        all_output = all_output + '\nหลังตามเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#ffa500" && Face_Cube_on === "#ffff00") {//หน้าสีส้ม
+        all_output = all_output + '\nขวาลง';
+    } else if (Face_Cube_front === "#00bfff" && Face_Cube_on === "#ffff00") {//สีฟ้า
+        all_output = all_output + '\nหน้าทวนเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#ff0000" && Face_Cube_on === "#ffff00") {//สีเเดง
+        all_output = all_output + '\nซ้ายขึ้น';
+    }
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.blue1;
@@ -552,6 +725,24 @@ function s7() {
     //}
 }// หน้าน้ำเงินทวนเข็ม
 function s8() {
+
+    /* สีส้ม     #ffa500
+       สีฟ้า     #00bfff
+       สีเเดง    #ff0000
+       สีเหลือง  #ffff00
+       สีขาว    #ffffff
+       สีเขียว   #008000
+    */
+    if (Face_Cube_front === "#008000" && Face_Cube_on === "#ffff00") {//หน้าเป็นหน้าเขียว
+        all_output = all_output + '\nซ้ายขึ้น';
+    } else if (Face_Cube_front === "#ffa500" && Face_Cube_on === "#ffff00") {//หน้าสีส้ม
+        all_output = all_output + '\nหลังตามเข็มนาฬิกา';
+    } else if (Face_Cube_front === "#00bfff" && Face_Cube_on === "#ffff00") {//สีฟ้า
+        all_output = all_output + '\nขวาลง';
+    } else if (Face_Cube_front === "#ff0000" && Face_Cube_on === "#ffff00") {//สีเเดง
+        all_output = all_output + '\nหน้าทวนเข็มนาฬิกา';
+    }
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.red1;
@@ -606,6 +797,9 @@ function s8() {
     //}
 }// หน้าเเดงทวนเข็ม
 function s9() {
+
+    all_output = all_output + '\nบนซ้าย';
+
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.yellow1;
@@ -660,6 +854,7 @@ function s9() {
     //}
 } // หน้าเหลืองตามเข็ม
 function s10() {
+    all_output = all_output + '\nบนขวา';
     //สลับเเบบทะเเยงมุม-F
     //{
     let tempnum1 = window.yellow1;
