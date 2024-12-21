@@ -26,58 +26,197 @@ function print() {
 
         Face_Cube_on = "#ffff00";//บนเหลือง
         Face_Cube_front = "#008000";//หน้าเขียว
+        let intP = "#008000" //สีของหน้าด้านที่ต้องการเรียงขาว
 
         all_output = all_output + title_1
-        for (let stop1 = 0; stop1 < 5; stop1++) { //สำหรับสูตร 1
+        for (let stop1 = 0; stop1 < 5; stop1++) { //สำหรับด้านที่1
             //เริ่มที่ด้านเขียว
-
-            if (green2 === "#008000" && yellow8 === "#ffffff") {
+            /*************  */
+            if (green2 === intP && yellow8 === "#ffffff") {
                 //ขาวอยู่ที่เซลล์ 8 เหลือง
-                s1();
-                s1();
-                bigi = 2; //จบสูตร 1 
-                break;
-            } else if (green4 === "#008000" && red6 === "#ffffff") {
-                // เซลขาวอยู่ เเดง 6
-                s5(); //หน้าเขียวทวนเข็ม
-                bigi = 2;
-                break;
-            } else if (green6 === "#008000" && orang4 === "#ffffff") {
-                s1();
-                bigi = 2;
-                break;
-            } else if (red2 === "#008000" && yellow4 === "#ffffff") {
 
                 //**************  ขาวอยู่เหลือง  ****************/
 
+                s1();
+                s1();
+
+                /*bigi = 2; //จบสูตร 1 
+                break;*/
+            } else if (red2 === intP && yellow4 === "#ffffff") {
+
+
+
                 //เหลือง 4 สีขาว
                 //เเดง 2 สีเขียว
                 s10();
                 s1();
                 s1();
-            } else if (orang2 === "#008000" && yellow6 === "#ffffff") {
+            } else if (orang2 === intP && yellow6 === "#ffffff") {
                 //เหลือง 6 สีขาว
                 //ส้ม 2 สีเขียว
                 s9();
                 s1();
                 s1();
-            } else if (blue2 === "#008000" && yellow2 === "#ffffff") {
+            } else if (blue2 === intP && yellow2 === "#ffffff") {
                 //เหลือง 6 สีขาว
                 //ส้ม 2 สีเขียว
                 s9();
                 s9();
                 s1();
                 s1();
-            } else if (red2 === "#008000" && yellow4 === "#ffffff") {
+            } else if (green2 === "#ffffff" && yellow8 === intP) {
                 //**************  ขาวอยู่เขียว  */
+                //ขาวอยู่ เขียว 2
+                s9();
+                s4();
+                s5();
 
-                //เหลือง 4 สีขาว
-                //เเดง 2 สีเขียว
+                s8();
+            } else if (green4 === "#ffffff" && red6 === intP) {
+                // ขาวอยู่ เขียว 4
+                s1()
+
+                s9();
+                s4();
+                s5();
+
+                s8();
+            } else if (green6 === "#ffffff" && orang4 === intP) {
+                // ขาวอยู่ เขียว 6
+                s5();
+
+                s9();
+                s4();
+                s5();
+
+                s8();
+            } else if (green8 === "#ffffff" && white8 === intP) {
+                // ขาวอยู่ เขียว 8 
+                s5();
+                s5();
+
+                s9();
+                s4();
+                s5();
+
+                s8();
+            } else if (orang2 === "#ffffff" && yellow6 === intP) {
+                //************** ขาว อยู่หน้าส้ม *********
+                s9();
+
+                s9();
+                s4();
+                s5();
+
+                s8();
+            } else if (orang4 === "#ffffff" && green6 === intP) {
+                s1();
+            } else if (orang6 === "#ffffff" && blue4 === intP) {
+                s6();
+                s9();
+
+                s9();
+                s4();
+                s5();
+
+                s8();
+                s2();
+            } else if (orang8 === "#ffffff" && white4 === intP) {
+                s6();
+                s6();
+                s9();
+
+                s9();
+                s4();
+                s5();
+
+                s8();
+                s6();
+                s6();
+            } else if (blue2 === "#ffffff" && yellow2 === intP) {
+                /************* ขาว อยู่ สีฟ้า */
                 s10();
-                s1();
-                s1();
-            }
+                s4();
+                s5();
 
+                s8();
+            } else if (blue4 === "#ffffff" && orang6 === intP) {
+                s3();
+
+                s10();
+                s4();
+                s5();
+
+                s8();
+                s7();
+            } else if (blue6 === "#ffffff" && red4 === intP) {
+                s7();
+
+                s10();
+                s4();
+                s5();
+
+                s8();
+                s3();
+            } else if (blue8 === "#ffffff" && white2 === intP) {
+                s7();
+                s7();
+
+                s10();
+                s4();
+                s5();
+
+                s8();
+                s7();
+                s7();
+            } else if (red2 === "#ffffff" && yellow4 === intP) {
+                /************* ขาวอยู่หน้า เเดง */
+                s4();
+                s5();
+
+                s8();
+            } else if (red4 === "#ffffff" && blue6 === intP) {
+                s4();
+
+                s4();
+                s5();
+
+                s4();
+                s4();
+            } else if (red6 === "#ffffff" && green4 === intP) {
+                s5();
+            } else if (red8 === "#ffffff" && white6 === intP) {
+                s8();
+                s5();
+
+                s4();
+            } else if (white8 === "#ffffff" && green8 === intP) {
+                /*********** หน้าขาวอยู่ขาว */
+
+            } else if (white4 === "#ffffff" && orang8 === intP) {
+                /******* มูฟ3มูฟด้านล่างนี้ยังไม่จบ เป็นเเค่การส่งไม้ต่อ ให้สูตรอื่นเเก้ต่อจนจบ*/
+                s2();
+                s2();
+                s9();
+
+                s2();
+                s2();
+            } else if (white2 === "#ffffff" && blue8 === intP) {
+                s3();
+                s3();
+                s9();
+                s9();
+
+                s3();
+                s3();
+            } else if (white6 === "#ffffff" && red8 === intP) {
+                s4();
+                s4();
+                s10();
+
+                s4();
+                s4();
+            }
         }
         //เเสดงผล
         document.getElementById("output").innerHTML = all_output;
@@ -217,7 +356,9 @@ function Chang_Face() {
     window.blue9 = o9_temp;
 
 }
-
+function Chang_Senter() {
+    //เปลี่ยนจุดตรงกลางก็พอ
+}
 
 //การหมุน
 function s1() {
